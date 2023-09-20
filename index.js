@@ -4,9 +4,7 @@ const questions = [
       type: "input",
       name: "text",
       message: "Enter up to 3 characters.",
-      validate: (text) =>
-        text.length <= 3 ||
-        "Please keep input to 3 characters or less, for a text value.",
+      choices: ["View All Employees", "Square", "Triangle"]
     },
     {
       type: "input",
