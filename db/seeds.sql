@@ -1,6 +1,14 @@
+-- Employee seeds
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES
-    ('John', 'Doe', '')
+    ('John', 'Doe', '', ''),
+    ('Mike', 'Chan', '', ''),
+    ('Ashley', 'Rodriguez', '', ''),
+    ('Kevin', 'Tupik', '', ''),
+    ('Kunal', 'Singh', '', ''),
+    ('Malia', 'Brown', '', ''),
+    ('Sarah', 'Lourd', '', ''),
+    ('Tom', 'Allen', '', '');
 
 -- Department seeds
 INSERT INTO departments (department_name)
