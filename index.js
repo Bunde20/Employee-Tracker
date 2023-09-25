@@ -10,7 +10,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//List of questions to ask the user
+// List of questions to ask the user
 function start() {
     inquirer    
         .prompt ({
