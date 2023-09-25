@@ -1,15 +1,3 @@
--- Employee seeds
-INSERT INTO employees (first_name, last_name, role_id, manager_id)
-VALUES
-    ('John', 'Doe', '', ''),
-    ('Mike', 'Chan', '', ''),
-    ('Ashley', 'Rodriguez', '', ''),
-    ('Kevin', 'Tupik', '', ''),
-    ('Kunal', 'Singh', '', ''),
-    ('Malia', 'Brown', '', ''),
-    ('Sarah', 'Lourd', '', ''),
-    ('Tom', 'Allen', '', '');
-
 -- Department seeds
 INSERT INTO departments (department_name)
 VALUES
@@ -29,3 +17,15 @@ VALUES
     ('Accountant', '125000', 2),
     ('Legal Team Lead', '250000', 3),
     ('Lawyer', '190000', 3);
+
+    -- Employee seeds
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
+VALUES
+    ('John', 'Doe', 1, 1),
+    ('Mike', 'Chan', 2, 1),
+    ('Ashley', 'Rodriguez', 3, 2),
+    ('Kevin', 'Tupik', 4, 1),
+    ('Kunal', 'Singh', 5, 4),
+    ('Malia', 'Brown', 6, 1),
+    ('Sarah', 'Lourd', 7, 6),
+    ('Tom', 'Allen', 8, 1);
