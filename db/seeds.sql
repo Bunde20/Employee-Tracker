@@ -21,11 +21,11 @@ VALUES
     -- Employee seeds
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES
-    ('John', 'Doe', 1, 1),
+    ('John', 'Doe', 1, NULL),
     ('Mike', 'Chan', 2, 1),
-    ('Ashley', 'Rodriguez', 3, 2),
-    ('Kevin', 'Tupik', 4, 1),
-    ('Kunal', 'Singh', 5, 4),
-    ('Malia', 'Brown', 6, 1),
-    ('Sarah', 'Lourd', 7, 6),
-    ('Tom', 'Allen', 8, 1);
+    ('Ashley', 'Rodriguez', 3, NULL),
+    ('Kevin', 'Tupik', 4, 3),
+    ('Kunal', 'Singh', 5, NULL),
+    ('Malia', 'Brown', 6, 5),
+    ('Sarah', 'Lourd', 7, NULL),
+    ('Tom', 'Allen', 8, 7);
