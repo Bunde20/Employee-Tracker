@@ -49,6 +49,12 @@ function start() {
       if (choice === 'Add an employee') {
         addEmployee();
       }
+      if (choice === 'Update an employee role') {
+        updateEmployeeRole();
+      }
+      if (choice === 'Exit') {
+        connection.end();
+      }
     });
 }
 
@@ -183,7 +189,7 @@ function addEmployee() {
         choices: ['John Doe', 'Mike Chan', 'Ashley Rodriguez', 'Kevin Tupik', 'Kunal Singh', 'Malia Brown', 'Sarah Lourd', 'Tom Allen'], 
         choices: data.map((employee) => {
           console.log(employee);
-          return { name: employee.first_name, value: employee.id };
+          return { name: `${employee.first_name} ${employee.last_name}`, value: employee.id };
         }),
       },
     ]);
@@ -199,6 +205,41 @@ function addEmployee() {
       (error, res) => {
         if (error) throw error;
         console.log(`Added ${res.firstName} ${res.lastName} to the database`);
+        start();
+      }
+    );
+  });
+}
+
+function updateEmployeeRole() {
+  connection.query('SELECT * FROM employees', async function (err, data) {
+    const employees = data.map((employee) => {
+      console.log(employee);
+      return { name: `${employee.first_name} ${employee.last_name}`, value: employee.id , role: employee.role_id }; 
+    });
+    console.log(employees);
+    const res = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'employeeId',
+        message: "Which employee's role do you want to update?",
+        choices: employees,
+      },
+    ]);
+    const query = 'UPDATE employees SET ? WHERE ?';
+    connection.query(
+      query,
+      [
+        {
+          role_id: res.roleId,
+        },
+        {
+          id: res.employeeId,
+        },
+      ],
+      (error, res) => {
+        if (error) throw error;
+        console.log(`Updated employee role`);
         start();
       }
     );
