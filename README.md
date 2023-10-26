@@ -26,9 +26,11 @@ As a small business owner, the client would like to have an application that can
 To install this application, download this repository to a local directory and run "npm install" in the terminal to install the required dependencies.
 
 ## Usage
+![Employee-Tracker-GIF](https://github.com/Bunde20/Employee-Tracker/assets/135177057/e7c7f64f-84b1-45a8-8c06-ff95fd9777c2)
 
 
 - Follow the link to view a longer video showing the dynamic application functionality:
+[Employee-Tracker.webm](https://github.com/Bunde20/Employee-Tracker/assets/135177057/a6583519-d661-43eb-b0a9-43015fe53375)
 
 
 
