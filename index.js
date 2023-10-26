@@ -9,7 +9,7 @@ connection.connect(function (err) {
   start();
 });
 
-// List of questions to ask the user
+// List of questions to ask the user when initialized
 function start() {
   inquirer
     .prompt([
@@ -58,6 +58,7 @@ function start() {
     });
 }
 
+// View all departments function
 function viewAllDepartments() {
   const query = 'SELECT * FROM departments';
   connection.query(query, function (err, res) {
@@ -67,6 +68,7 @@ function viewAllDepartments() {
   });
 }
 
+// View all roles function
 function viewAllRoles() {
   const query = 'SELECT * FROM roles';
   connection.query(query, function (err, res) {
@@ -77,6 +79,7 @@ function viewAllRoles() {
   });
 }
 
+// View all employees function
 function viewAllEmployees() {
   const query = `SELECT employees.id, CONCAT(employees.first_name, " ", employees.last_name) AS employee, roles.title, departments.department_name, roles.salary, CONCAT(manager.first_name, " ", manager.last_name) AS manager
     FROM employees
@@ -90,6 +93,7 @@ function viewAllEmployees() {
   });
 }
 
+// Add a department function
 function addDepartment() {
   inquirer
     .prompt([
@@ -117,12 +121,12 @@ function addDepartment() {
 
 const departmentChoices = ['engineering', 'sales', 'legal', 'finance'];
 
+// Add a role function
 function addRole() {
   connection.query('SELECT * FROM departments', async function (err, data) {
     const departments = data.map((department) => {
       return { name: department.department_name, value: department.id };
     });
-    console.log(departments);
     const res = await inquirer.prompt([
       {
         type: 'input',
@@ -158,6 +162,7 @@ function addRole() {
   });
 }
 
+// Add an employee function
 function addEmployee() {
   connection.query('SELECT * FROM roles', async function (err, data) {
     const roles = data.map((role) => {
@@ -172,8 +177,6 @@ function addEmployee() {
             value: employee.id,
           };
         });
-        console.log(employees);
-        console.log([{ name: 'No Manager', value: null }, ...employees]);
         const res = await inquirer.prompt([
           {
             type: 'input',
@@ -220,6 +223,7 @@ function addEmployee() {
   });
 }
 
+// Update an employee role function
 function updateEmployeeRole() {
   connection.query(
     'SELECT * FROM employees',
@@ -230,7 +234,6 @@ function updateEmployeeRole() {
           value: employee.id,
         };
       });
-      console.log(employees);
       const res = await inquirer.prompt([
         {
           type: 'list',
@@ -244,7 +247,6 @@ function updateEmployeeRole() {
         const roles = data.map((role) => {
           return { name: role.title, value: role.id };
         });
-        console.log(roles);
         const roleRes = await inquirer.prompt([
           {
             type: 'list',
